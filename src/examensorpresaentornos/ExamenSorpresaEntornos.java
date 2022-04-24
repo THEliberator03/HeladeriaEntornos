@@ -10,7 +10,7 @@ public class ExamenSorpresaEntornos {
         int pedido[] = new int[4], num = 0, numSabores= 1;
         boolean rep = true;
         
-        //Presentación inicial del programa
+        //Presentación inicial del programa de helados:
         System.out.println("Autoservicio Helados Alfredo"
                 + "\n============================");
         
