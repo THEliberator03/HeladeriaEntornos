@@ -36,6 +36,7 @@ public class main {
                         break;
                     case "pistacho":
                         sabores[i] = "pistacho";
+                        break;
                     default:
                         System.out.println("No tenemos ese sabor");
                         i--;
@@ -86,6 +87,9 @@ public class main {
                         break;
                     case "limon":
                         sabores[i] = "limon";
+                        break;
+                    case "pistacho":
+                        sabores[i] = "pistacho";
                         break;
                     default:
                         System.out.println("No tenemos ese sabor");
