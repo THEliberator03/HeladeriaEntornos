@@ -14,7 +14,7 @@ public class main {
         String sabores[] = {" ", " ", " "};
 
         if (helado.equalsIgnoreCase("cono")) {
-            precio = 2*0.10;
+            precio = 2+(2*0.10);
             for (int i = 0; i < 3; i++) {
                 System.out.println("¿Que sabor quiere?");
                 String sabor = new Scanner(System.in).nextLine();
@@ -66,7 +66,7 @@ public class main {
             //helado h1 = new cono(sabores[0],sabores[1],sabores[2]);
             
         }else{
-            precio = 1.5*0.10;
+            precio = 1.5+(1.5*0.10);
             for (int i = 0; i < 3; i++) {
                 System.out.println("¿Que sabor quiere?");
                 String sabor = new Scanner(System.in).nextLine();
