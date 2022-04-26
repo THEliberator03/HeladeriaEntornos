@@ -105,7 +105,7 @@ public class main {
                 double respuestaPaga = new Scanner(System.in).nextDouble();
                 if (respuestaPaga > precio){
                     double resultado = respuestaPaga - precio;
-                    System.out.println("Aqui tiene su cambio ("+resultado+") y su helado");
+                    System.out.println("Aqui tiene su cambio ("+resultado+") y su tarrina");
                     rep = false;
                 }else{
                     System.out.println("No es suficiente dinero o no tiene suficiente saldo en la tarjeta, vuelva a intentarlo");
