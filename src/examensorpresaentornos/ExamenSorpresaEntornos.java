@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class ExamenSorpresaEntornos {
     public static void main(String[] args) {
-        double precio = 0.0;
+        double precio = 0.0, finPrecio = 0.0;
         int pedido[] = new int[4], num = 0, numSabores= 1;
         boolean rep = true;
         
@@ -58,16 +58,17 @@ public class ExamenSorpresaEntornos {
                             + "\n2.-Nata  ~  1€"
                             + "\n3.-Chocolate  ~  1€"
                             + "\n4.-Naranja  ~  1€"
-                            + "\n5.-Limón  ~  1€");
+                            + "\n5.-Limón  ~  1€"
+                            + "\n6.-Pistacho ~ 1€");
                         
                         pedido[numSabores] = new Scanner(System.in).nextInt();
-                        num = 2;
                         if(numSabores > 1){
                             precio += 0.5;
                         }
                         else{
                             precio += 1.0;
                         }
+                        num = 2;
                         break;
                     case 2:
                         /*
@@ -98,7 +99,7 @@ public class ExamenSorpresaEntornos {
                         break;
                     case 3:
                         /*
-                          El último paso se encarga de tomar la información dada por el cliente y dar el resultado final junto con el precio al cliente
+                          El penúltimo paso se encarga de tomar la información dada por el cliente y dar el resultado final junto con el precio al cliente
                         */
                         String finPedido = "";
                         
@@ -106,10 +107,10 @@ public class ExamenSorpresaEntornos {
                             if(i == 0){
                                 switch(pedido[i]){
                                     case 1:
-                                        finPedido += "Cono de ";
+                                        finPedido += "\nCono de ";
                                         break;
                                     case 2:
-                                        finPedido += "Tarrina de ";
+                                        finPedido += "\nTarrina de ";
                                         break;
                                     default:
                                         break;
@@ -117,6 +118,8 @@ public class ExamenSorpresaEntornos {
                             }
                             else if(i > 0 && i < 4){
                                 switch(pedido[i]){
+                                    case 0:
+                                        break;
                                     case 1:
                                         finPedido += "Fresa, ";
                                         break;
@@ -132,17 +135,38 @@ public class ExamenSorpresaEntornos {
                                     case 5:
                                         finPedido += "Limón, ";
                                         break;
+                                    case 6:
+                                        finPedido += "Pistacho, ";
+                                        break;
                                     default:
+                                        System.out.println("Error, sabor incorrecto introducido.");
                                         break;
                                 }
                             }
                             else if(i == 4){
-                                finPedido += "= " +precio+ "€";
+                                finPrecio = precio + precio*0.1;
+                                finPedido += "= " +finPrecio+ "€";
                             }
                         }
                         
                         System.out.println(finPedido);
-                        rep = false;
+                        num = 4;
+                        break;
+                    case 4:
+                        System.out.println("\n¿Con que cantidad va a pagar el helado?");
+                        double paga = new Scanner(System.in).nextDouble();
+                        
+                        double vuelta = paga - finPrecio;
+                        if(vuelta < 0){
+                            System.out.println("\nEl valor indicado no es suficiente para pagar el helado, inténtelo de nuevo.");
+                        }
+                        else{
+                            System.out.println("\nSu vuelta es de " +vuelta+ "€");
+                            System.out.println("\nGracias por su compra, tenga un buen día.");
+                            
+                            rep = false;
+                        }
+                        
                         break;
                     default:
                         System.out.println("Ha ocurrido un error inesperado, repita el proceso.");
