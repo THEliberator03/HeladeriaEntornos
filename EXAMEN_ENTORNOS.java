@@ -9,7 +9,7 @@ public class EXAMEN_ENTORNOS {
    
     public static void main(String[] args) {
        double precio = 0;
-       System.out.println("¿Qué tipo de helado quiere?");
+       System.out.println("¿Qué tipo de helado quiere? Cono o Tarrina");
        String opcion = new Scanner(System.in).nextLine();
        String forma= opcion.toLowerCase();
        switch(forma){
@@ -50,7 +50,7 @@ public class EXAMEN_ENTORNOS {
                break;
            case "tarrina":
                precio=0.50;
-                   System.out.println("¿Qué sabor quieres?");
+                   System.out.println("¿Qué sabor quieres? ");
                    String respuesta = new Scanner(System.in).nextLine();
                    precio+=1;          
                 for(int i=0;i<2;i++){
@@ -86,14 +86,19 @@ public class EXAMEN_ENTORNOS {
        precio=precio+aumento;
        System.out.println("El precio del helado es de : " +precio+ " euros");
 
-       System.out.println("¿Con cuanto dinero va a pagar usted?");
-       double dinero= new Scanner(System.in).nextInt();
-       if(dinero>precio){
-           double vuelta=dinero-precio;
-           System.out.println("Tome su vuelta de " +vuelta+ " euros y gracias por comprar");
-       }else{
-           System.out.println("El dinero queme ha dado es insuficiente");
+       for(int i=0;i<5;i++){
+        System.out.println("¿Con cuanto dinero va a pagar usted?");
+        double dinero= new Scanner(System.in).nextInt();
+        if(dinero>precio){
+            double vuelta=dinero-precio;
+            System.out.println("Tome su vuelta de " +vuelta+ " euros y gracias por comprar");
+            i=5;
+        }else{
+            System.out.println("El dinero que me ha dado es insuficiente");
+            
+        }
        }
+       
 
        
     }
