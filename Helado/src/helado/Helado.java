@@ -10,6 +10,7 @@ import java.util.Scanner;
  */
 public class Helado {
     public static void main(String[] args) {
+
         boolean sigue1 = true, sigue2 = true;
         double precioFinal = 0;
         String valor, valor2, sabores = "";
@@ -31,14 +32,27 @@ public class Helado {
                     
                     switch(valor2){
                     case "Si": 
-                        System.out.println("¿Que sabor quieres añadir? (Fresa, Nata, Chocolote, Naranja, Limon)");
-                        sabores += new Scanner(System.in).nextLine() + ", ";
-                        precioFinal += 0.50;
+                        System.out.println("¿Que sabor quieres añadir? (Fresa, Nata, Chocolote, Naranja, Limon, Pistacho)");
+                        String tec = new Scanner(System.in).nextLine() + ", ";
+                        if (tec.equalsIgnoreCase("Fresa")||tec.equalsIgnoreCase("nata")||tec.equalsIgnoreCase("chocolate")||tec.equalsIgnoreCase("naranja")||tec.equalsIgnoreCase("limon")||tec.equalsIgnoreCase("Pistacho")){
+                            sabores += tec+", ";
+                            precioFinal += 0.50;
+                        }else{
+                            System.out.println("No tenemos ese sabor");
+                        }
                         i++;
                         break;
                     case "No":
                         sigue2 = false;
+                        precioFinal = precioFinal*1.10;
                         System.out.println("Su helado es de "+sabores+"con un precio final de: "+precioFinal);
+                        System.out.println("¿Con cuanto desea pagar?");
+                        int pago = new Scanner(System.in).nextInt();
+                        if(pago < precioFinal){
+                            System.out.println("No tiene dinero suficiente");
+                        }else{
+                            System.out.println("Aqui tiene "+(pago-precioFinal)+" de vueltas");
+                        }
                         break;
                     }
                 }
@@ -55,14 +69,27 @@ public class Helado {
                     }
                     switch(valor2){
                     case "Si": 
-                        System.out.println("¿Que sabor quieres añadir? (Fresa, Nata, Chocolote, Naranja, Limon)");
-                        sabores += new Scanner(System.in).nextLine() + ", ";
-                        precioFinal += 0.50;
+                        System.out.println("¿Que sabor quieres añadir? (Fresa, Nata, Chocolote, Naranja, Limon, Pistacho)");
+                        String tec = new Scanner(System.in).nextLine() + ", ";
+                        if (tec.equalsIgnoreCase("Fresa")||tec.equalsIgnoreCase("nata")||tec.equalsIgnoreCase("chocolate")||tec.equalsIgnoreCase("naranja")||tec.equalsIgnoreCase("limon")||tec.equalsIgnoreCase("Pistacho")){
+                            sabores += tec+", ";
+                            precioFinal += 0.50;
+                        }else{
+                            System.out.println("No tenemos ese sabor");
+                        }
                         i++;
                         break;
                     case "No":
                         sigue2 = false;
                         System.out.println("Su helado es de "+sabores+"con un precio final de: "+precioFinal);
+                        precioFinal = precioFinal * 1.10;
+                        System.out.println("¿Con cuanto desea pagar?");
+                        int pago = new Scanner(System.in).nextInt();
+                        if(pago < precioFinal){
+                            System.out.println("No tiene dinero suficiente");
+                        }else{
+                            System.out.println("Aqui tiene "+(pago-precioFinal)+" de vueltas");
+                        }                        
                         break;
                     }
                 }
